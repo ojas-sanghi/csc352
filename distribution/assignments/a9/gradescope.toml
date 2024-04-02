@@ -1,7 +1,7 @@
 [[tests]]
 submissions = ["expr.c"]  
 make = [
-  "cp $src/bst.h $src/read.c .", 
+  "cp $src/expr.h $src/read.c .", 
   "cc -Wall -o ./read read.c expr.c"
   ]
 
@@ -12,7 +12,7 @@ make = [
 [[tests]]
 submissions = ["expr.c"]  
 make = [
-  "cp $src/bst.h $src/fully.c .", 
+  "cp $src/expr.h $src/fully.c .", 
   "cc -Wall -o ./fully fully.c expr.c"
   ]
 
@@ -23,7 +23,7 @@ make = [
 [[tests]]
 submissions = ["expr.c"]  
 make = [
-  "cp $src/bst.h $src/minimal.c .", 
+  "cp $src/expr.h $src/minimal.c .", 
   "cc -Wall -o ./minimal minimal.c expr.c"
   ]
 

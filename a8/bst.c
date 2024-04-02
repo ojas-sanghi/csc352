@@ -92,7 +92,7 @@ BST *create_tree(int *arr, int n)
 }
 
 
-BST *remove_min(BST *root, BST **min)
+BST *remove_min(BST *root, BST **min)   
 {
     if (root->left == NULL)
     {

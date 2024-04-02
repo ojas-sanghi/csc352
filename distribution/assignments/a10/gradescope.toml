@@ -1,7 +1,7 @@
 [[tests]]
 submissions = ["bcd.c"]  
 make = [
-  "cp $src/bst.h $src/read.c .", 
+  "cp $src/bcd.h $src/read.c .", 
   "cc -Wall -o ./read read.c bcd.c"
   ]
 
@@ -12,7 +12,7 @@ make = [
 [[tests]]
 submissions = ["bcd.c"]  
 make = [
-  "cp $src/bst.h $src/sum.c .", 
+  "cp $src/bcd.h $src/sum.c .", 
   "cc -Wall -o ./sum sum.c bcd.c"
   ]
 
@@ -23,7 +23,7 @@ make = [
 [[tests]]
 submissions = ["bcd.c"]  
 make = [
-  "cp $src/bst.h $src/scale.c .", 
+  "cp $src/bcd.h $src/scale.c .", 
   "cc -Wall -o ./scale scale.c bcd.c"
   ]
 

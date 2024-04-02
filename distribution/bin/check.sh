@@ -12,12 +12,14 @@ testcase=$2
 basedir=$(dirname "$testcase")
 base=$(basename "$testcase" .stdin)
 
-
-destdir=./results
+testdir=${basedir##*/}
+destdir="./results/$testdir"
 
 
 expectedout="$basedir/$base.stdout.expected"
 expectederr="$basedir/$base.stderr.expected"
+
+cp "$expectedout" "$expectederr" "$destdir"
 
 # echo "executable: $executable"
 # echo "testcase: $testcase"
