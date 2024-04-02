@@ -1,0 +1,109 @@
+<h1 id="programming-assignment-3-text-processing">Programming Assignment
+3: Text processing</h1>
+<p>Version 1.0 (2024-02-03) - Initial version</p>
+<p>Version 1.1 (2024-02-12) - Simplified how to count lines in
+<code>wc.c</code>.</p>
+<h2 id="due-date">Due Date:</h2>
+<ul>
+<li>Friday, 2024-02-16, 3:00PM Arizona Time</li>
+</ul>
+<h2 id="download-and-extract-the-assignments-files-from-d2l">Download
+and extract the assignments files from D2L</h2>
+<p>Download the file <code>distribution.tar.gz</code> from D2L and save
+it in your <code>csc352</code> directory.</p>
+<p>Extract the files from the archive using the command:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> xvf distribution.tar.gz</span></code></pre></div>
+<p>You should now have a directory called <code>distribution</code> in
+your <code>csc352</code> directory. You can check this by doing:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div>
+<p><strong>This directory will get updated from time to time, so do not
+make any changes to this directory or its contents.</strong></p>
+<p>Also, note that this directory may contain other assignments, so
+don’t get confused.</p>
+<h2 id="create-a-directory-for-this-assignment-called-a3">Create a
+directory for this assignment called <code>a3</code></h2>
+<h2 id="write-c-programs">Write C Program(s):</h2>
+<p>For this assignment, you will write three different C programs. You
+will write each program in a separate file. You will turn in all
+files.</p>
+<p>All programs will read input from standard input (stdin) and write
+output to standard output (stdout).</p>
+<p>The programs should only use only the following library routines:</p>
+<ul>
+<li><code>getchar()</code></li>
+<li><code>putchar()</code></li>
+<li><code>fgets()</code></li>
+<li><code>printf()</code></li>
+</ul>
+<p><strong>Do not use any other library functions.</strong></p>
+<h3 id="detab.c">detab.c</h3>
+<p>Write a program that reads characters from <code>stdin</code> and
+prints them to <code>stdout</code>, but with all tabs expanded to
+spaces. Assume that a tab character (<code>'\t'</code>) moves the cursor
+to the next column that is a multiple of 8. You should assume that the
+input file may contain tabs, and that the output file should contain
+spaces in place of the tabs.</p>
+<h3 id="wc.c">wc.c</h3>
+<p>Write a program that reads characters from <code>stdin</code> and
+counts how many lines, words, and characters are in the input. It should
+print out the counts in the following format of lines, words, and
+characters, right justified in 5 space-padded columns, with a space in
+between:</p>
+<pre><code>    1    10   100</code></pre>
+<ul>
+<li>To count lines, assume that a newline character (<code>'\n'</code>)
+marks the end of a line. Simply count the number of newline
+characters.</li>
+<li>To count words, assume that a word is a sequence of characters
+separated by whitespace. Whitespace is any sequence of spaces, tabs, or
+newlines.</li>
+<li>To count characters, count all characters, including whitespace and
+newlines.</li>
+</ul>
+<h3 id="fold.c">fold.c</h3>
+<p>Write a program that reads characters from <code>stdin</code> and
+prints them to <code>stdout</code>, but with a maximum line length of 40
+characters. If a line is longer than 40 characters, it should be broken
+into multiple lines, with each line being no longer than 40 characters.
+The program should break lines only at spaces, and should not break
+words in the middle.</p>
+<p>You should assume the following:</p>
+<ul>
+<li>no input line is longer than 1000 characters.</li>
+<li>no sequence of non-space characters is longer than 40
+characters.</li>
+</ul>
+<p>When a line is broken into multiple lines, the program should print a
+newline character at the end of each line, including the last line.</p>
+<p>When a line is broken, the first half should end with a newline
+character and no other spaces, and the second half should start with no
+other spaces.</p>
+<p>The output should end with a newline, even if the input does not.</p>
+<pre><code>   1234567890 234567890 234567890   abcdefghijklmnopqrstuvwxyz</code></pre>
+<p>Would become:</p>
+<pre><code>1234567890 234567890 234567890
+abcdefghijklmnopqrstuvwxyz</code></pre>
+<p>(With no spaces after the last <code>0</code> and before the
+<code>a</code>.)</p>
+<p>Use <code>fgets()</code> to read the input.</p>
+<h2 id="experiment-with-them">Experiment with them</h2>
+<p>Compile each program using a command like:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cc</span> <span class="at">-Wall</span> <span class="at">-o</span> wc wc.c</span></code></pre></div>
+<p>There must be no warnings or errors. (Notice the addition of the
+<code>-Wall</code> flag!)</p>
+<p>Then, try it with file redirection, like:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./wc</span> <span class="op">&lt;</span> wc.c</span></code></pre></div>
+<h2 id="run-the-test-cases">Run the test cases</h2>
+<p>Run the test cases using these commands as appropriate:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">../distribution/a3/test.sh</span> ./detab ../distribution/a3/tests.detab</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">../distribution/a3/test.sh</span> ./wc ../distribution/a3/tests.wc</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">../distribution/a3/test.sh</span> ./fold ../distribution/a3/tests.fold</span></code></pre></div>
+<p>If they don’t all pass, then you have a problem.</p>
+<h2 id="turn-it-in">Turn it in</h2>
+<p>Turn in <code>detab.c</code>, <code>wc.c</code> and
+<code>fold.c</code> to Gradescope for Assignment A3.</p>

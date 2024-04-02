@@ -1,0 +1,124 @@
+<h1 id="programming-assignment-2-c-programming">Programming Assignment
+2: C Programming</h1>
+<p>Version 1.0 (2024-01-26) - Initial version</p>
+<p>Version 1.1 (2024-02-04) - Corrected the test invocation commands</p>
+<h2 id="due-date">Due Date:</h2>
+<ul>
+<li>Friday, 2024-02-09, 3:00PM Arizona Time</li>
+</ul>
+<h2 id="download-and-extract-the-assignments-files-from-d2l">Download
+and extract the assignments files from D2L</h2>
+<p>Download the file <code>distribution.tar.gz</code> from D2L and save
+it in your <code>csc352</code> directory.</p>
+<p>Extract the files from the archive using the command:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> xvf distribution.tar.gz</span></code></pre></div>
+<p>You should now have a directory called <code>distribution</code> in
+your <code>csc352</code> directory. You can check this by doing:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div>
+<p><strong>This directory will get updated from time to time, so do not
+make any changes to this directory or its contents.</strong></p>
+<p>Also, note that this directory may contain other assignments, so
+don’t get confused.</p>
+<h2 id="create-a-directory-for-this-assignment-called-a2">Create a
+directory for this assignment called <code>a2</code></h2>
+<h2 id="write-c-programs">Write C Program(s):</h2>
+<p>For this assignment, you will write three different C programs. You
+will write each program in a separate file. You will turn in all
+files.</p>
+<p>All programs will read input from standard input (stdin) and write
+output to standard output (stdout).</p>
+<p>The programs should only use <code>getchar()</code>,
+<code>putchar()</code>, and <code>printf()</code> to read and write
+characters. <strong>Do not use any other library functions.</strong></p>
+<h3 id="count.c">count.c</h3>
+<p>Write a program that reads characters from <code>stdin</code> and
+counts how many times each character appears using an array of integers.
+The array should have 256 elements, one for each possible character
+value.</p>
+<p>After counting all the characters, it should print out the counts of
+all the letters, <code>a</code> through <code>z</code>, and all the
+digits, <code>0</code> through <code>9</code>, in that order.</p>
+<p>An example of the output is:</p>
+<pre><code>a: 1
+b: 12
+c: 3
+...
+z: 26
+0: 193
+1: 2
+...
+9: 9</code></pre>
+<p><strong>NOTE</strong> that there is a colon and a single space
+between the character and the count, and that they are done in the order
+shown above, one per line.</p>
+<h3 id="horizontal.c">horizontal.c</h3>
+<p>Like count.c, horizontal.c should read characters from
+<code>stdin</code> and count how many times each character appears.
+However, instead of printing the counts in a vertical list, it will
+print a horizontal histogram of the counts using the <code>*</code>
+character.</p>
+<p>Like count.c, it should print out the counts of all the letters,
+<code>a</code> through <code>z</code>, and all the digits,
+<code>0</code> through <code>9</code>, in that order.</p>
+<p>An example of the output is:</p>
+<pre><code>a: *
+b: ************
+c: ***
+...
+z: **************************
+0: 
+1: **
+...
+9: *********</code></pre>
+<p>Just like count.c, there is a colon and a single space between the
+character and the count, and that they are done in the order shown
+above, one per line.</p>
+<p><strong>NOTE</strong> There is a space after the colon
+(<code>:</code>) and before the <code>*</code> characters. Those are the
+only spaces in the output—there are no spaces after the asterisks.</p>
+<h3 id="vertical.c">vertical.c</h3>
+<p>Like count.c, vertical.c should read characters from
+<code>stdin</code> and count how many times each character appears.
+However, instead of printing the counts in a vertical list, it will
+print a vertical histogram of the counts using the <code>*</code>
+character.</p>
+<p>This program is trickier than the others, so do the others first and
+leave plenty of time to work on it.</p>
+<p>Unlike the others, this program should print the histogram for only
+<code>a</code> through <code>z</code>, and not for any other
+characters.</p>
+<p>An example of the output is:</p>
+<pre><code>* * ** **  *  ** ****     
+* * ** **  *  ** ****  *  
+* *******  * *** ****  *  
+* *******  ***** ****  *  
+* *******  ***** ******* *
+abcdefghijklmnopqrstuvwxyz</code></pre>
+<p>Note that the bottom line is the letters that label the histogram,
+and that the histogram is directly above the letters.</p>
+<p><strong>NOTE</strong> All of the “blanks” in the vertical histogram
+should be spaces.</p>
+<h2 id="experiment-with-them">Experiment with them</h2>
+<p>Compile each program using a command like:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cc</span> <span class="at">-Wall</span> <span class="at">-o</span> count count.c</span></code></pre></div>
+<p>There must be no warnings or errors. (Notice the addition of the
+<code>-Wall</code> flag!)</p>
+<p>Then, try it with file redirection, like:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./count</span> <span class="op">&lt;</span> count.c</span></code></pre></div>
+<p>(Obviously, you don’t need to use <code>count.c</code> as the input
+file. You can use any file you like, and much smaller files may be
+useful during testing.)</p>
+<h2 id="run-the-test-cases">Run the test cases</h2>
+<p>Run the test cases using these commands as appropriate:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">../distribution/a2/test.sh</span>  ./count       ../distribution/a2/tests.count/</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">../distribution/a2/test.sh</span>  ./horizontal  ../distribution/a2/tests.horizontal/</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">../distribution/a2/test.sh</span>  ./vertical    ../distribution/a2/tests.vertical/</span></code></pre></div>
+<p>If they don’t all pass, then you have a problem.</p>
+<h2 id="turn-it-in">Turn it in</h2>
+<p>Turn in <code>count.c</code>, <code>horizontal.c</code> and
+<code>vertical.c</code> to Gradescope for Assignment A2.</p>

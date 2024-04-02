@@ -1,0 +1,44 @@
+[[tests]]
+submissions = ["bst.c"]  
+make = [
+  "cp $src/bst.h $src/build.c .", 
+  "cc -Wall -o ./build build.c bst.c"
+  ]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./build", "$tests.build"]
+
+[[tests]]
+submissions = ["bst.c"]  
+make = [
+  "cp $src/bst.h $src/search.c .", 
+  "cc -Wall -o ./search search.c bst.c"
+  ]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./search", "$tests.search"]
+
+[[tests]]
+submissions = ["bst.c"]  
+make = [
+  "cp $src/bst.h $src/remove_min.c .", 
+  "cc -Wall -o ./remove_min remove_min.c bst.c"
+  ]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./remove_min", "$tests.remove_min"]
+
+[[tests]]
+submissions = ["bst.c"]  
+make = [
+  "cp $src/bst.h $src/delete.c .", 
+  "cc -Wall -o ./delete delete.c bst.c"
+  ]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./delete", "$tests.delete"]
+

@@ -1,0 +1,7 @@
+[[tests]]
+submissions = ["fold.c"]  
+make = ["cc -Wall -o ./fold fold.c"]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./fold", "$tests.fold"]

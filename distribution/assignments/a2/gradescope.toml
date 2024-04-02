@@ -1,0 +1,23 @@
+[[tests]]
+submissions = ["count.c"]
+make = ["cc -Wall -o ./count count.c"]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./count", "$tests.count"]
+
+[[tests]]  
+submissions = ["horizontal.c"]
+make = ["cc -Wall -o ./horizontal horizontal.c"]
+
+  [[tests.tests]]
+  exe = "$test.sh" 
+  args = ["./horizontal", "$tests.horizontal"]
+
+[[tests]]
+submissions = ["vertical.c"]  
+make = ["cc -Wall -o ./vertical vertical.c"]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./vertical", "$tests.vertical"]

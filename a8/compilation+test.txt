@@ -1,0 +1,15 @@
+cc -Wall -o build ../distribution/assignments/a8/src/build.c bst.c
+./build < ../distribution/assignments/a8/tests.build/t105.stdin
+../distribution/assignments/a8/test.sh ./build ../distribution/assignments/a8/tests.build
+
+cc -Wall -o remove_min ../distribution/assignments/a8/src/remove_min.c bst.c
+./remove_min < ../distribution/assignments/a8/tests.remove_min/t105.stdin
+../distribution/assignments/a8/test.sh ./remove_min ../distribution/assignments/a8/tests.remove_min
+
+cc -Wall -o delete ../distribution/assignments/a8/src/delete.c bst.c
+./delete < ../distribution/assignments/a8/tests.delete/t105.stdin
+../distribution/assignments/a8/test.sh ./delete ../distribution/assignments/a8/tests.delete
+
+cc -Wall -o search ../distribution/assignments/a8/src/search.c bst.c
+./search < ../distribution/assignments/a8/tests.search/t105.stdin
+../distribution/assignments/a8/test.sh ./search ../distribution/assignments/a8/tests.search

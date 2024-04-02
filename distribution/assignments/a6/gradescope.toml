@@ -1,0 +1,8 @@
+[[tests]]
+submissions = ["bowling.c"]  
+make = ["cc -Wall -o ./bowling bowling.c"]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./bowling", "$tests.bowling"]
+

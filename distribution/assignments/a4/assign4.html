@@ -1,0 +1,161 @@
+<p><link rel="stylesheet" href="https://unpkg.com/bamboo.css"></p>
+<h1 id="programming-assignment-4-more-text-processing">Programming
+Assignment 4: More text processing</h1>
+<p>Version 1.0 (2024-02-18) - Initial version</p>
+<h2 id="due-date">Due Date:</h2>
+<ul>
+<li>Friday, 2024-02-123, 3:00PM Arizona Time</li>
+</ul>
+<h2 id="download-and-extract-the-assignments-files-from-d2l">Download
+and extract the assignments files from D2L</h2>
+<p>Download the file <code>distribution.tar.gz</code> from D2L and save
+it in your <code>csc352</code> directory.</p>
+<p>Extract the files from the archive using the command:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> xvf distribution.tar.gz</span></code></pre></div>
+<p>You should now have a directory called <code>distribution</code> in
+your <code>csc352</code> directory. You can check this by doing:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code></pre></div>
+<p><strong>This directory will get updated from time to time, so do not
+make any changes to this directory or its contents.</strong></p>
+<p>Also, note that this directory may contain other assignments, so
+don’t get confused.</p>
+<h2 id="create-a-directory-for-this-assignment-called-a4">Create a
+directory for this assignment called <code>a4</code></h2>
+<h2 id="write-c-programs">Write C Program(s):</h2>
+<p>For this assignment, you will write three different C programs. You
+will write each program in a separate file. You will turn in all
+files.</p>
+<p>All programs will read input from standard input (stdin) and write
+output to standard output (stdout).</p>
+<p>The programs should only use only the following library routines:</p>
+<ul>
+<li><code>getchar()</code></li>
+<li><code>putchar()</code></li>
+<li><code>fgets()</code></li>
+<li><code>printf()</code></li>
+<li><code>strlen()</code></li>
+</ul>
+<p><strong>Do not use any other library functions.</strong></p>
+<h3 id="fold.c">fold.c</h3>
+<p>NOTE: This is based on the (abandonned) <code>fold.c</code> from the
+previous assignment. It has changed, however, to be more carefully
+defined. Please read it carefully.</p>
+<p>Write a program that reads characters from <code>stdin</code> and
+prints them to <code>stdout</code>, but with a maximum line length of 40
+characters. If a line is longer than 40 characters, it should be broken
+into multiple lines, with each line being no longer than 40 characters.
+The program should break lines only at spaces, and should not break
+words in the middle.</p>
+<p>You should assume the following:</p>
+<ul>
+<li>no input line is longer than 1000 characters.</li>
+<li>no sequence of non-space characters is longer than 40
+characters.</li>
+</ul>
+<p>When a line is broken into multiple lines, the program should print a
+newline character at the end of each line, including the last line.</p>
+<p>When a line is broken, each printed part should have no leading or
+trailing spaces. All internal spaces are maintained, however.</p>
+<p>The output should end with a newline, even if the input does not.</p>
+<pre><code>   1234567890 234567890 234567890   abcdefghijklmnopqrstuvwxyz</code></pre>
+<p>Would become:</p>
+<pre><code>1234567890 234567890 234567890
+abcdefghijklmnopqrstuvwxyz</code></pre>
+<p>(With no spaces after the last <code>0</code> and before the
+<code>a</code>.)</p>
+<p>Use <code>fgets()</code> to read the input.</p>
+<h3 id="words.c">words.c</h3>
+<p>Write a program that reads from stdin, and breaks every line into
+words. A word is a sequence of non-space characters. The program should
+print each word on a separate line, with no leading or trailing spaces.
+The program should print a newline character after each word.</p>
+<p>Empty lines should be printed as well, with no spaces.</p>
+<p>So, the input:</p>
+<pre><code>    1234567890 234567890 234567890   abcdefghijklmnopqrstuvwxyz
+
+
+    abc def</code></pre>
+<p>Would become:</p>
+<pre><code>1234567890
+234567890
+234567890
+abcdefghijklmnopqrstuvwxyz
+
+
+abc
+def</code></pre>
+<p>Your implementation must include and use a function,
+<code>int extract_words(char *words[], char *line)</code> that processes
+the string pointed to by <code>line</code> and breaks it into words,
+storing the words in the array <code>words</code>. The function should
+return the number of words found. The function should not print
+anything.</p>
+<p><code>extract_words</code> should not use <code>malloc</code> or any
+other dynamic memory allocation. It should mutate <code>line</code> to
+break it into words by placing zeroes at the end of each word, and
+should store pointers to the beginning of each word in the array
+<code>words</code>.</p>
+<p>Use <code>fgets()</code> to read the input.</p>
+<p>Your program make make the following assumptions:</p>
+<ul>
+<li>no input line is longer than 1,000 characters.</li>
+<li>no sequence of non-space characters is longer than 40
+characters.</li>
+<li>the input is less than 100,0000 characters.</li>
+</ul>
+<h3 id="paragraphs.c">paragraphs.c</h3>
+<p>Write a program that reads from stdin, separates each line into
+words, and then prints “paragraphs” by merging the words back together
+into lines, with a maximum line length of 40 characters. Adjacent lines
+are part of the same paragraph.</p>
+<p>An input paragraph is a sequence of lines, separated by empty lines.
+When printed, paragraphs should be separated by a single empty line.</p>
+<p>The program should not print any leading or trailing spaces, and
+should not print any leading or trailing empty lines.</p>
+<p>NOTE: <code>extract_words</code> from the previous program could be
+useful in this program.</p>
+<p>Your program make make the following assumptions:</p>
+<ul>
+<li>no input line is longer than 1,000 characters.</li>
+<li>no sequence of non-space characters is longer than 40
+characters.</li>
+<li>the input is less than 100,000 characters.</li>
+<li>empty lines are any lines that contain only zero or more
+spaces.</li>
+</ul>
+<p>The input:</p>
+<pre><code>
+    1234567890 
+234567890    234567890     123
+
+
+abcdefghijkl
+mnopqrstuvwxyz
+
+
+</code></pre>
+<p>Would become:</p>
+<pre><code>1234567890 234567890 234567890 123
+
+abcdefghijkl mnopqrstuvwxyz</code></pre>
+<h2 id="experiment-with-them">Experiment with them</h2>
+<p>Compile each program using a command like:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cc</span> <span class="at">-Wall</span> <span class="at">-o</span> fold fold.c</span></code></pre></div>
+<p>There must be no warnings or errors. (Notice the addition of the
+<code>-Wall</code> flag!)</p>
+<p>Then, try it with file redirection, like:</p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./fold</span> <span class="op">&lt;</span> ../distribution/a3/tests.fold/t100.stdin</span></code></pre></div>
+<h2 id="run-the-test-cases">Run the test cases</h2>
+<p>Run the test cases using these commands as appropriate:</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">../distribution/a4/test.sh</span> ./fold ../distribution/a3/tests.fold</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ex">../distribution/a4/test.sh</span> ./words ../distribution/a3/tests.words</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ex">../distribution/a4/test.sh</span> ./paragraphs ../distribution/a3/tests.paragraphs</span></code></pre></div>
+<p>If they don’t all pass, then you have a problem.</p>
+<h2 id="turn-it-in">Turn it in</h2>
+<p>Turn in <code>fold.c</code>, <code>words.c</code> and
+<code>paragraphs.c</code> to Gradescope for Assignment A4.</p>

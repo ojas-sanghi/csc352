@@ -1,0 +1,16 @@
+{
+    "submissions": [
+        "a1.c"
+    ],
+    "make": [
+        "cc -o ./a1 a1.c"
+    ],
+    "tests": [
+        {
+            "exe": "test.sh",
+            "args": [
+                "./a1"
+            ]
+        }
+    ]
+}

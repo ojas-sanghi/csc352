@@ -1,0 +1,132 @@
+<p><link rel="stylesheet" href="https://unpkg.com/bamboo.css"></p>
+<h1 id="programming-assignment-7-lists">Programming Assignment 7:
+Lists</h1>
+<p>Version 1.0 (2024-03-05) - Initial version</p>
+<h2 id="due-date">Due Date:</h2>
+<ul>
+<li>Friday, 2024-03-22, 3:00PM Arizona Time</li>
+</ul>
+<h2 id="download-and-extract-the-assignments-files-from-d2l">Download
+and extract the assignments files from D2L</h2>
+<p>Download the file <code>distribution.tar.gz</code> from D2L and save
+it in your <code>csc352</code> directory.</p>
+<h2 id="create-a-directory-for-this-assignment-called-a7">Create a
+directory for this assignment called <code>a7</code></h2>
+<h2 id="write-c-programs">Write C Program(s):</h2>
+<p>For this assignment, you will create three C programs.</p>
+<p>All programs will read input from standard input (stdin) and write
+output to standard output (stdout).</p>
+<p>The programs should only use only the following library routines:</p>
+<ul>
+<li><code>getchar()</code></li>
+<li><code>putchar()</code></li>
+<li><code>fgets()</code></li>
+<li><code>printf()</code></li>
+<li><code>strlen()</code></li>
+<li><code>scanf()</code></li>
+<li><code>exit()</code></li>
+<li><code>malloc()</code></li>
+<li><code>free()</code></li>
+<li><code>strcmp()</code></li>
+</ul>
+<p><strong>Do not use any other library functions.</strong></p>
+<h3 id="linked.h">linked.h</h3>
+<p>You will be creating a file, <code>linked.c</code>, that will
+implement the functions declared in <code>linked.h</code>. This file
+will contain the following functions:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> node <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span><span class="op">*</span> word<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> node <span class="op">*</span>next<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Node<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">extern</span> <span class="dt">char</span> <span class="op">*</span>get_word<span class="op">();</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">extern</span> Node <span class="op">*</span>create_node<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>str<span class="op">,</span> Node <span class="op">*</span>next<span class="op">);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">extern</span> Node <span class="op">*</span>read_list<span class="op">();</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">extern</span> <span class="dt">void</span> print_list<span class="op">(</span>Node <span class="op">*</span>head<span class="op">);</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">extern</span> Node <span class="op">*</span>inorder<span class="op">(</span>Node <span class="op">*</span>head<span class="op">,</span> Node <span class="op">*</span>node<span class="op">);</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="kw">extern</span> Node <span class="op">*</span>sort_list<span class="op">(</span>Node <span class="op">*</span>head<span class="op">);</span></span></code></pre></div>
+<h3 id="linked.c">linked.c</h3>
+<p>The <code>linked.c</code> file should contain the implementations of
+the functions declared in <code>linked.h</code>. The functions should be
+implemented as follows:</p>
+<h4 id="char-get_word"><code>char *get_word()</code></h4>
+<p>This function should read a word from standard input and return a
+pointer to a dynamically allocated array of characters that contains the
+word. The function should return <code>NULL</code> if there are no more
+words to read.</p>
+<h4
+id="node-create_nodechar-str-node-next"><code>Node *create_node(char *str, Node *next)</code></h4>
+<p>This function should create a new node with the given word and next
+pointer. The function should return a pointer to the new node.</p>
+<h4 id="node-read_list"><code>Node *read_list()</code></h4>
+<p>This function should read a sequence words from standard input and
+return a pointer to the head of the linked list containing those words.
+The list should be stored in the order that the words are read.</p>
+<h4
+id="void-print_listnode-head"><code>void print_list(Node *head)</code></h4>
+<p>This function should print the words in the linked list, one per
+line.</p>
+<h4
+id="node-inordernode-head-node-node"><code>Node *inorder(Node *head, Node *node)</code></h4>
+<p>This function should insert the given node into the linked list in
+alphabetical order. The function should return a pointer to the head of
+the list.</p>
+<p>Alphabetical order should be determined with the C library’s
+<code>strcmp()</code> function.</p>
+<h4
+id="node-sort_listnode-head"><code>Node *sort_list(Node *head)</code></h4>
+<p>This function should sort the linked list in alphabetical order. The
+function should return a pointer to the head of the list.</p>
+<p>It should not create a new list, but rather rearrange the pointers in
+the existing list.</p>
+<p>It should not use any additional memory, other than a few pointers.
+It should definitely not use any arrays.</p>
+<h3 id="list.c">list.c</h3>
+<p>You will be given a file, <code>list.c</code>, that contains the
+<code>main()</code> function for <code>list</code> executable. This file
+will read a sequence of words from standard input and store them in a
+linked list. It will then call the <code>print_list()</code> function to
+print the list.</p>
+<p>It will be tested separately. It will be compiled with
+<code>linked.c</code> to create the executable <code>list</code>:</p>
+<pre><code>```bash
+cc -Wall -o list list.c linked.c
+```</code></pre>
+<h3 id="inorder.c">inorder.c</h3>
+<p>You will be given a file, <code>inorder.c</code>, that contains the
+<code>main()</code> function. This file will read a sequence of words
+from standard input and store them in a linked list. It will then call
+the <code>inorder()</code> function to insert the words in alphabetical
+order. Finally, it will call the <code>print_list()</code> function to
+print the list.</p>
+<h3 id="sortlist.c">sortlist.c</h3>
+<p>You will be given a file, <code>sortlist.c</code>, that contains the
+<code>main()</code> function. This file will read a sequence of words
+from standard input and store them in a linked list. It will then call
+the <code>sort_list()</code> function to sort the list in alphabetical
+order. Finally, it will call the <code>print_list()</code> function to
+print the list.</p>
+<h3
+id="distributionassignmentsa7src-directory">distribution/assignments/a7/src
+directory</h3>
+<p>You will find the following files in the
+<code>distribution/assignments/a7/src</code> directory:</p>
+<ul>
+<li><code>linked.h</code> - This file contains the declarations of the
+functions you will implement in <code>linked.c</code>.</li>
+<li><code>list.c</code> - This file contains the <code>main()</code>
+function for the <code>list</code> executable.</li>
+<li><code>inorder.c</code> - This file contains the <code>main()</code>
+function for the <code>inorder</code> executable.</li>
+<li><code>sortlist.c</code> - This file contains the <code>main()</code>
+function for the <code>sortlist</code> executable.</li>
+</ul>
+<h2 id="run-the-test-cases">Run the test cases</h2>
+<p>Run the test cases using these commands as appropriate. E.g.,</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex"> ../distribution/assignments/a7/test.sh</span> ./list ../distribution/assignments/a7/tests.list</span></code></pre></div>
+<p>If they don’t all pass, then you have a problem.</p>
+<h2 id="turn-it-in">Turn it in</h2>
+<p>Turn in <code>linked.c</code> to Gradescope for Assignment A7.</p>

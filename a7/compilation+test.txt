@@ -1,0 +1,8 @@
+cc -Wall -o list ../distribution/assignments/a7/src/list.c linked.c
+../distribution/assignments/a7/test.sh ./list ../distribution/assignments/a7/tests.list
+
+cc -Wall -o inorder ../distribution/assignments/a7/src/inorder.c linked.c
+../distribution/assignments/a7/test.sh ./inorder ../distribution/assignments/a7/tests.inorder
+
+cc -Wall -o sortlist ../distribution/assignments/a7/src/sortlist.c linked.c
+../distribution/assignments/a7/test.sh ./sortlist ../distribution/assignments/a7/tests.sortlist

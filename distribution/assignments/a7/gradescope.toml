@@ -1,0 +1,33 @@
+[[tests]]
+submissions = ["linked.c"]  
+make = [
+  "cp $src/linked.h $src/list.c .", 
+  "cc -Wall -o ./list list.c linked.c"
+  ]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./list", "$tests.list"]
+
+[[tests]]
+submissions = ["linked.c"]  
+make = [
+  "cp $src/linked.h $src/inorder.c .", 
+  "cc -Wall -o ./inorder inorder.c linked.c"
+  ]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./inorder", "$tests.inorder"]
+
+[[tests]]
+submissions = ["linked.c"]  
+make = [
+  "cp $src/linked.h $src/sortlist.c .", 
+  "cc -Wall -o ./sortlist sortlist.c linked.c"
+  ]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./sortlist", "$tests.sortlist"]
+

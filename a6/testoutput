@@ -1,0 +1,128 @@
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/et101.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/et101.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/et102.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/et102.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/et103.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/et103.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/et104.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/et104.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/ft101.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/ft101.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/ft102.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/ft102.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/ft103.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/ft103.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/ft104.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/ft104.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/lt101.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/lt101.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/lt102.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/lt102.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/lt103.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/lt103.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/lt104.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/lt104.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/perfect.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/perfect.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t101.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t101.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t102.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t102.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t103.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t103.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t104.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t104.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t105.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t105.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t106.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t106.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t107.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t107.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t108.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t108.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t109.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t109.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t110.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t110.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t111.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t111.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t112.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t112.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t113.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t113.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t114.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t114.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t115.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t115.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t116.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t116.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t117.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t117.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t118.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t118.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t119.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t119.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t120.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t120.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t121.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t121.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t122.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t122.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t123.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t123.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t124.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t124.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t125.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t125.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t126.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t126.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t127.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t127.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t128.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t128.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t129.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t129.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t130.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t130.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t131.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t131.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t132.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t132.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t133.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t133.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t134.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t134.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t135.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t135.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t136.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t136.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t137.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t137.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t138.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t138.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t139.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t139.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t140.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t140.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t141.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t141.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t142.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t142.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t143.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t143.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t144.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t144.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t145.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t145.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t146.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t146.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t147.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t147.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t148.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t148.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t149.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t149.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/t150.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/t150.stdin
+--- Running ./bowling on ../distribution/assignments/a6/tests.bowling/zero.stdin
+PASS: ./bowling ../distribution/assignments/a6/tests.bowling/zero.stdin

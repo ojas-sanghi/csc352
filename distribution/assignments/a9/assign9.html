@@ -1,0 +1,233 @@
+<p><link rel="stylesheet" href="https://unpkg.com/bamboo.css"></p>
+<h1 id="programming-assignment-9-postfix-expressions">Programming
+Assignment 9: Postfix Expressions</h1>
+<p>Version 1.0 (2024-03-24) - Initial version</p>
+<h2 id="due-date">Due Date:</h2>
+<ul>
+<li>Friday, 2024-04-05, 3:00PM Arizona Time</li>
+</ul>
+<h2 id="download-and-extract-the-assignments-files-from-d2l">Download
+and extract the assignments files from D2L</h2>
+<p>Download the file <code>distribution.tar.gz</code> from D2L and save
+it in your <code>csc352</code> directory.</p>
+<h2 id="create-a-directory-for-this-assignment-called-a9">Create a
+directory for this assignment called <code>a9</code></h2>
+<h2 id="general-idea">General Idea</h2>
+<p>Arithmetic expressions are typically written in infix notation, where
+the operator is placed between the operands. For example, the infix
+expression <code>3 + 4</code> is a simple binary expression.</p>
+<p>Expressions can also be written equivalently in postfix expression
+like <code>3 4 +</code>. In postfix notation, the operator is placed
+after the operands.</p>
+<p>In this assignment, you will write a program that reads a list of
+postfix expressions from standard input, and then prints them in infix
+notation.</p>
+<p>In this assignment, the expressions will be binary expressions, with
+only the operators <code>+</code>, <code>-</code>, and <code>*</code>,
+as well as integer operands. For instance, here are some equivalent
+infix and postfix expressions:</p>
+<p>Infix: <code>3 + 4</code> Postfix: <code>3 4 +</code></p>
+<p>Infix: <code>3 * 4 + 5</code> Postfix: <code>3 4 * 5 +</code></p>
+<p>Infix: <code>3 + 4 * 5</code> Postfix: <code>3 4 5 * +</code></p>
+<p>Infix: <code>(3 + 4) * 5</code> Postfix: <code>3 4 + 5 *</code></p>
+<p>Infix: <code>3 * (4 + 5)</code> Postfix: <code>3 4 5 + *</code></p>
+<h2 id="write-c-programs">Write C Program(s):</h2>
+<p>For this assignment, you will write one C file, which will be used by
+three different C programs.</p>
+<p>All programs will read input from standard input (stdin) and write
+output to standard output (stdout).</p>
+<p>The programs should only use only the following library routines:</p>
+<ul>
+<li><code>atoi()</code></li>
+<li><code>exit()</code></li>
+<li><code>malloc()</code></li>
+<li><code>printf()</code></li>
+<li><code>scanf()</code></li>
+<li><code>strcmp()</code></li>
+</ul>
+<p><strong>Do not use any other library functions.</strong></p>
+<h3 id="provided-files-expr.h-fully.c-minimal.c-read.c">Provided files:
+expr.h fully.c minimal.c read.c</h3>
+<p>You are provided with the following files, which you should not
+modify:</p>
+<ul>
+<li><code>expr.h</code> - This file contains the following definitions:
+<ul>
+<li>the <code>Expr</code> struct</li>
+<li>the <code>List</code> struct, for a linked list of <code>Expr</code>
+nodes</li>
+<li>the <code>Stack</code> struct, for a stack of <code>Expr</code>
+nodes</li>
+<li>the function prototypes for the functions you will implement.</li>
+</ul></li>
+<li><code>read.c</code> - This file contains a main function that will
+use your routines to read a list of <code>Expr</code> nodes into a
+linked list and to print that list.</li>
+<li><code>fully.c</code> - This file contains a main function that read
+a list of <code>Expr</code> nodes, convert them into a tree, and then
+print the expression in a fully parenthesized fashion.</li>
+<li><code>minimal.c</code> - This file contains a main function that is
+similar to <code>fully.c</code>, except that it will print the
+expression with as few parentheses as possible.</li>
+</ul>
+<p>DO NOT MODIFY THESE FILES.</p>
+<h3 id="expr.h">expr.h</h3>
+<p><code>expr.h</code> contains the definition of many structures for
+manipulating expression trees. The expression tree nodes will include a
+<code>union</code> becasue some nodes represent simple integers, and
+other nodes represent binary expression nodes (e.g.,
+multiplication).</p>
+<p>The “type” of the node will be stored in the <code>type</code> field
+of the <code>Expr</code> struct, and the value of the node will be
+stored in the <code>u</code> union.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">enum</span> exprType <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  NONE <span class="op">=</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  NUMBER<span class="op">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  ADD<span class="op">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  SUB<span class="op">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  MUL<span class="op">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  END<span class="op">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> ExprType<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> expr <span class="op">{</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  ExprType type<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">union</span> <span class="op">{</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> val<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> <span class="op">{</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      <span class="kw">struct</span> expr<span class="op">*</span> left<span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="kw">struct</span> expr<span class="op">*</span> right<span class="op">;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span> binop<span class="op">;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="op">}</span> u<span class="op">;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Expr<span class="op">;</span></span></code></pre></div>
+<p>In addition to those types, your programs will need to maintain a
+list of expression nodes, and a stack of expression nodes. Those
+structures follow:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> stack <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  Expr<span class="op">*</span> expr<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> stack<span class="op">*</span> below<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> Stack<span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> list <span class="op">{</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  Expr<span class="op">*</span> expr<span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">struct</span> list<span class="op">*</span> next<span class="op">;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> List<span class="op">;</span></span></code></pre></div>
+<p>Finally, your program will need to implement 6 functions, which are
+prototyped in <code>expr.h</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">extern</span> Expr<span class="op">*</span> get_next_expr_node<span class="op">();</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">extern</span> List<span class="op">*</span> get_all_expr_nodes<span class="op">();</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">extern</span> <span class="dt">void</span> print_expr_node<span class="op">(</span>Expr<span class="op">*</span> expr<span class="op">);</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">extern</span> Stack<span class="op">*</span> add_node_to_expr_stack<span class="op">(</span>Stack<span class="op">*</span> stack<span class="op">,</span> Expr<span class="op">*</span> expr<span class="op">);</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">extern</span> <span class="dt">void</span> print_fully_parenthesized_expr<span class="op">(</span>Expr<span class="op">*</span> expr<span class="op">);</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">extern</span> <span class="dt">void</span> print_minimally_parenthesized_expr<span class="op">(</span>Expr<span class="op">*</span> expr<span class="op">);</span></span></code></pre></div>
+<p>The first three are needed for <code>read.c</code>.</p>
+<p>The first five are needed for <code>fully.c</code>.</p>
+<p>All six are needed for <code>minimal.c</code>.</p>
+<p>I suggest you implement these functions in the order they are
+listed.</p>
+<h4
+id="expr-get_next_expr_node"><code>Expr* get_next_expr_node()</code></h4>
+<p><code>get_next_expr_node</code> will read the next integer or
+operator from standard input and return a pointer to a new
+<code>Expr</code> node representing that expression.</p>
+<ul>
+<li>If the input is an integer, the <code>type</code> field of the
+<code>Expr</code> node should be set to <code>NUMBER</code>, and the
+value of the integer should be stored in the <code>val</code> field of
+the <code>u</code> union.<br />
+</li>
+<li>If the input is an operator, the <code>type</code> field of the
+<code>Expr</code> node should be set to <code>ADD</code>,
+<code>SUB</code>, or <code>MUL</code>. This function will <em>not</em>,
+however, try to fill in the <code>left</code> and <code>right</code>
+fields of the <code>u</code> union. That will be done later.</li>
+</ul>
+<h4
+id="list-get_all_expr_nodes"><code>List* get_all_expr_nodes()</code></h4>
+<p><code>get_all_expr_nodes</code> will read all of the expressions from
+standard input and return a linked list of <code>Expr</code> nodes. This
+function should call <code>get_next_expr_node</code> repeatedly until it
+returns an <code>Expr</code> node with a <code>type</code> of
+<code>END</code>. The <code>next</code> field of the last
+<code>Expr</code> node in the list should be set to
+<code>NULL</code>.</p>
+<h4
+id="void-print_expr_nodeexpr-expr"><code>void print_expr_node(Expr* expr)</code></h4>
+<p><code>print_expr_node</code> will print the expression represented by
+the <code>Expr</code> node to standard output.</p>
+<ul>
+<li>If the <code>type</code> of the <code>Expr</code> node is
+<code>NUMBER</code>, then the integer value should be printed.</li>
+<li>If the <code>type</code> of the <code>Expr</code> node is
+<code>ADD</code>, <code>SUB</code>, or <code>MUL</code>, then the
+operator should be printed. This function will <em>not</em>, however,
+print the <code>left</code> and <code>right</code> fields of the
+<code>u</code> union. That will be done later.</li>
+</ul>
+<h4
+id="stack-add_node_to_expr_stackstack-stack-expr-expr"><code>Stack* add_node_to_expr_stack(Stack* stack, Expr* expr)</code></h4>
+<p>THIS IS LIKELY A DIFFICULT FUNCTION TO IMPLEMENT.</p>
+<p>This function will take a pointer to a <code>Stack</code> of
+<code>Expr</code> nodes and a pointer to an <code>Expr</code> node that
+needs to be added to the stack.</p>
+<p><code>NUMBER</code> nodes will be added to the top of the stack.</p>
+<p>This function is responsible for filling in the <code>left</code> and
+<code>right</code> fields of binary operator <code>Expr</code> nodes
+that is being added to the stack and then pushing it onto the stack. It
+does this by popping the top two elements of the stack and using those
+expressions as the <code>left</code> and <code>right</code> fields, and
+then pushing the new <code>Expr</code> node onto the stack.</p>
+<p>It will return a pointer to a new <code>Stack</code> that includes
+the new <code>Expr</code> node.</p>
+<h4
+id="void-print_fully_parenthesized_exprexpr-expr"><code>void print_fully_parenthesized_expr(Expr* expr)</code></h4>
+<p>Given an <code>Expr</code> node that represents a binary expression,
+this function will print the expression in fully parenthesized form. For
+example, the expression <code>3 4 +</code> would be printed as
+<code>(3 + 4)</code>.</p>
+<h4
+id="void-print_minimally_parenthesized_exprexpr-expr"><code>void print_minimally_parenthesized_expr(Expr* expr)</code></h4>
+<p>Given an <code>Expr</code> node that represents a binary expression,
+this function will print the expression in minimally parenthesized form.
+For example, the expression <code>3 4 +</code> would be printed as
+<code>3 + 4</code>.</p>
+<p>Here are some examples:</p>
+<p>Fully parenthesized: <code>3 4 +</code> -&gt; <code>(3 + 4)</code>
+Minimally parenthesized: <code>3 4 +</code> -&gt; <code>3 + 4</code></p>
+<p>Fully parenthesized: <code>3 4 5 + *</code> -&gt;
+<code>(3 * (4 + 5))</code> Minimally parenthesized:
+<code>3 4 5 + *</code> -&gt; <code>3 * (4 + 5)</code></p>
+<p>Fully parenthesized: <code>3 4 5 * +</code> -&gt;
+<code>(3 + (4 * 5))</code> Minimally parenthesized:
+<code>3 4 5 * +</code> -&gt; <code>3 + 4 * 5</code></p>
+<p>Fully parenthesized: <code>3 4 + 5 *</code> -&gt;
+<code>((3 + 4) * 5)</code> Minimally parenthesized:
+<code>3 4 + 5 *</code> -&gt; <code>(3 + 4) * 5</code></p>
+<p>Fully parenthesized: <code>3 4 + 5 6 + *</code> -&gt;
+<code>((3 + 4) * (5 + 6))</code> Minimally parenthesized:
+<code>3 4 + 5 6 + *</code> -&gt; <code>(3 + 4) * (5 + 6)</code></p>
+<p>Note that we will treat the binary operators as left-associative,
+so</p>
+<p>Fully parenthesized: <code>3 4 + 5 +</code> -&gt;
+<code>((3 + 4) + 5)</code> Minimally parenthesized:
+<code>3 4 + 5 +</code> -&gt; <code>3 + 4 + 5</code></p>
+<p>Fully parenthesized: <code>3 4 5 + +</code> -&gt;
+<code>(3 + (4 + 5))</code> Minimally parenthesized:
+<code>3 4 5 + +</code> -&gt; <code>3 + (4 + 5)</code></p>
+<h2 id="experiment-with-them">Experiment with them</h2>
+<p>Compile each program using a command like:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cc</span> <span class="at">-Wall</span> <span class="at">-o</span> read read.c expr.c</span></code></pre></div>
+<p>There must be no warnings or errors. (Notice the addition of the
+<code>-Wall</code> flag!)</p>
+<p>Then, try it with file redirection, like:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./read</span> <span class="op">&lt;</span> ../distribution/assignment/a9/tests.read/t101.stdin</span></code></pre></div>
+<h2 id="run-the-test-cases">Run the test cases</h2>
+<p>Run the test cases using these commands as appropriate. E.g.,</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">../distribution/assignments/a9/test.sh</span> ./read ../distribution/assignments/a9/tests.read</span></code></pre></div>
+<p>If they don’t all pass, then you have a problem.</p>
+<h2 id="turn-it-in">Turn it in</h2>
+<p>Turn in all <code>expr.c</code> to Gradescope for Assignment A9.</p>

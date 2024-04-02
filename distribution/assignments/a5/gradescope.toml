@@ -1,0 +1,31 @@
+[[tests]]
+submissions = ["row_major.c", "shared.c", "shared.h"]  
+make = ["cc -Wall -o ./row_major row_major.c shared.c"]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./row_major", "$tests.row_major"]
+
+[[tests]]
+submissions = ["column_major.c", "shared.c", "shared.h"]  
+make = ["cc -Wall -o ./column_major column_major.c shared.c"]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./column_major", "$tests.column_major"]
+
+[[tests]]
+submissions = ["right_justified.c", "shared.c", "shared.h"]  
+make = ["cc -Wall -o ./right_justified right_justified.c shared.c"]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./right_justified", "$tests.right_justified"]
+
+[[tests]]
+submissions = ["variable_width.c", "shared.c", "shared.h"]  
+make = ["cc -Wall -o ./variable_width variable_width.c shared.c"]
+
+  [[tests.tests]]
+  exe = "$test.sh"
+  args = ["./variable_width", "$tests.variable_width"]

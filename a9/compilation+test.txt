@@ -1,0 +1,11 @@
+cc -Wall -o read ../distribution/assignments/a9/src/read.c expr.c
+./read < ../distribution/assignments/a9/tests.read/t405.stdin
+../distribution/assignments/a9/test.sh ./read ../distribution/assignments/a9/tests.read
+
+cc -Wall -o minimal ../distribution/assignments/a9/src/minimal.c expr.c
+./minimal < ../distribution/assignments/a9/tests.minimal/t405.stdin
+../distribution/assignments/a9/test.sh ./minimal ../distribution/assignments/a9/tests.minimal
+
+cc -Wall -o fully ../distribution/assignments/a9/src/fully.c expr.c
+./fully < ../distribution/assignments/a9/tests.fully/t405.stdin
+../distribution/assignments/a9/test.sh ./fully ../distribution/assignments/a9/tests.fully

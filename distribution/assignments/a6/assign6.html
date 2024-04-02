@@ -1,0 +1,137 @@
+<p><link rel="stylesheet" href="https://unpkg.com/bamboo.css"></p>
+<h1 id="programming-assignment-6-bowling">Programming Assignment 6:
+Bowling</h1>
+<p>Version 1.0 (2024-03-05) - Initial version</p>
+<h2 id="due-date">Due Date:</h2>
+<ul>
+<li>Friday, 2024-03-15, 3:00PM Arizona Time</li>
+</ul>
+<h2 id="download-and-extract-the-assignments-files-from-d2l">Download
+and extract the assignments files from D2L</h2>
+<p>Download the file <code>distribution.tar.gz</code> from D2L and save
+it in your <code>csc352</code> directory.</p>
+<h2 id="create-a-directory-for-this-assignment-called-a6">Create a
+directory for this assignment called <code>a6</code></h2>
+<h2 id="write-c-programs">Write C Program(s):</h2>
+<p>For this assignment, you will write one C program.</p>
+<p>All programs will read input from standard input (stdin) and write
+output to standard output (stdout).</p>
+<p>The programs should only use only the following library routines:</p>
+<ul>
+<li><code>getchar()</code></li>
+<li><code>putchar()</code></li>
+<li><code>fgets()</code></li>
+<li><code>printf()</code></li>
+<li><code>strlen()</code></li>
+<li><code>scanf()</code></li>
+<li><code>exit()</code></li>
+</ul>
+<p><strong>Do not use any other library functions.</strong></p>
+<h3 id="bowling.c">bowling.c</h3>
+<p>Write a program that reads a sequence of integers from standard
+input. The integers represent the number of pins knocked down by a
+bowler on each successive roll. They are separated by whitespace
+(spaces, tabs or newlines)</p>
+<p>There are many good descriptions of how to score a bowling game on
+the web. Here is one: <a
+href="http://www.fryes4fun.com/Bowling/scoring.htm">How to Score a
+Bowling Game</a></p>
+<h3 id="output">output</h3>
+<p>After reading the input, the program should print a frame-by-frame
+score for the game. The score should be printed in the following
+format:</p>
+<pre><code>Frame  1: ( 8/ 2) 17  17 ( Spare)
+Frame  2: ( 7/ 3) 20  37 ( Spare)
+Frame  3: (10/ -) 18  55 (Strike)
+Frame  4: ( 4/ 4)  8  63 (  Open)
+Frame  5: ( 4/ 6) 18  81 ( Spare)
+Frame  6: ( 8/ 2) 16  97 ( Spare)
+Frame  7: ( 6/ 3)  9 106 (  Open)
+Frame  8: ( 8/ 1)  9 115 (  Open)
+Frame  9: ( 9/ 1) 20 135 ( Spare)
+Frame 10: (10/ -) 19 154 (Strike) (+9+0)</code></pre>
+<p>or</p>
+<pre><code>Frame  1: ( 9/ 1) 15  15 ( Spare)
+Frame  2: ( 5/ 5) 19  34 ( Spare)
+Frame  3: ( 9/ 1) 17  51 ( Spare)
+Frame  4: ( 7/ 2)  9  60 (  Open)
+Frame  5: ( 6/ 4) 20  80 ( Spare)
+Frame  6: (10/ -) 24 104 (Strike)
+Frame  7: (10/ -) 20 124 (Strike)
+Frame  8: ( 4/ 6) 14 138 ( Spare)
+Frame  9: ( 4/ 3)  7 145 (  Open)
+Frame 10: ( 9/ 1) 20 165 ( Spare) (+10)</code></pre>
+<p>or</p>
+<pre><code>Frame  1: ( 5/ 5) 20  20 ( Spare)
+Frame  2: (10/ -) 30  50 (Strike)
+Frame  3: (10/ -) 30  80 (Strike)
+Frame  4: (10/ -) 30 110 (Strike)
+Frame  5: (10/ -) 28 138 (Strike)
+Frame  6: (10/ -) 19 157 (Strike)
+Frame  7: ( 8/ 1)  9 166 (  Open)
+Frame  8: (10/ -) 20 186 (Strike)
+Frame  9: ( 7/ 3) 16 202 ( Spare)
+Frame 10: ( 6/ 3)  9 211 (  Open)</code></pre>
+<p>Inside the first set of parentheses is the balls rolled in that
+frame. Note that strikes have only one ball.</p>
+<p>Following the parentheses is the score for that frame including bonus
+points awarded for strikes and spares.</p>
+<p>Following the frame’s score is the running total.</p>
+<p>Following the running total is the type of frame:
+<code>"Open"</code>, <code>"Spare"</code>, <code>"Strike"</code>.</p>
+<p>On the last frame, if there are bonus balls, they should be printed
+in parentheses after the frame’s score.</p>
+<h4 id="implementation-details">Implementation details:</h4>
+<p>The program should be decomposed into 4 functions:</p>
+<ul>
+<li><code>int read_rolls(int rolls[])</code> - This function should read
+the rolls from standard input and store them in the array
+<code>rolls[]</code>. The function should return the number of rolls
+read.</li>
+<li><code>int score_frames(struct frame frames[], int rolls[], int num_rolls)</code>
+- This function should compute what happened in each frame and fill in
+the <code>frames[]</code> array with the results.</li>
+<li><code>void print_frames(struct frame frames[])</code> - This
+function should print the frames in the format shown above.</li>
+<li><code>int main()</code> - This function should call the other
+functions in the appropriate order, and declare the appropriate
+variables.</li>
+</ul>
+<h4 id="data-structures">Data structures:</h4>
+<p>You should define a struct to represent a frame. The struct should
+have the following fields:</p>
+<ul>
+<li><code>int first_roll</code> - The number of pins knocked down on the
+first roll of the frame.</li>
+<li><code>int second_roll</code> - The number of pins knocked down on
+the second roll of the frame.</li>
+<li><code>int score</code> - The score for the frame.</li>
+<li><code>char *type</code> - A string that describes the type of frame:
+<code>"Open"</code>, <code>"Spare"</code>, <code>"Strike"</code>.</li>
+</ul>
+<h4 id="errors">Errors</h4>
+<p>If the input has too few rolls, it should print the following error
+message:</p>
+<pre><code>Too few rolls</code></pre>
+<p>If the input has too many rolls, it should print the following error
+message:</p>
+<pre><code>Too many rolls</code></pre>
+<p>If the input has an invalid roll (e.g., a number less than 0 or
+greater than 10), it should print the following error message:</p>
+<pre><code>Invalid roll</code></pre>
+<h2 id="experiment-with-them">Experiment with them</h2>
+<p>Compile each program using a command like:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cc</span> <span class="at">-Wall</span> <span class="at">-o</span> bowling bowling.c</span></code></pre></div>
+<p>There must be no warnings or errors. (Notice the addition of the
+<code>-Wall</code> flag!)</p>
+<p>Then, try it with file redirection, like:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./bowling</span> <span class="op">&lt;</span> ../distribution/assignment/a6/tests.bowling/t100.stdin</span></code></pre></div>
+<h2 id="run-the-test-cases">Run the test cases</h2>
+<p>Run the test cases using these commands as appropriate. E.g.,</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex"> ../distribution/assignments/a6/test.sh</span> ./bowling ../distribution/assignments/a6/tests.bowling</span></code></pre></div>
+<p>If they don’t all pass, then you have a problem.</p>
+<h2 id="turn-it-in">Turn it in</h2>
+<p>Turn in all 4 C programs to Gradescope for Assignment A6.</p>

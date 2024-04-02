@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cd /autograder/source
+
+python3 ./autograder.py \
+    --root_dir ./distribution/ \
+    --submission_dir /autograder/submission \
+    --output /autograder/results/results.json \
+    --metadata /autograder/submission_metadata.json

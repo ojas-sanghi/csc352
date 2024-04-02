@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build right_justified",
+            "type": "shell",
+            "command": "cc",
+            "args": [
+                "-Wall",
+                "-o",
+                "right_justified",
+                "right_justified.c"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build and run right_justified",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-c",
+                "cc -Wall -o right_justified right_justified.c && ./right_justified < right_justified.c"
+            ]
+        }
+    ]
+}

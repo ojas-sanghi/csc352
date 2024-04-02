@@ -1,0 +1,38 @@
+{
+    "tests": [
+        {
+            "submissions": [
+                "words.c"
+            ],
+            "make": [
+                "cc -Wall -o ./words words.c"
+            ],
+            "tests": [
+                {
+                    "exe": "$test.sh",
+                    "args": [
+                        "./words",
+                        "$tests.words"
+                    ]
+                }
+            ]
+        },
+        {
+            "submissions": [
+                "paragraphs.c"
+            ],
+            "make": [
+                "cc -Wall -o ./paragraphs paragraphs.c"
+            ],
+            "tests": [
+                {
+                    "exe": "$test.sh",
+                    "args": [
+                        "./paragraphs",
+                        "$tests.paragraphs"
+                    ]
+                }
+            ]
+        }
+    ]
+}

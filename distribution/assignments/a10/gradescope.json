@@ -1,0 +1,58 @@
+{
+    "tests": [
+        {
+            "submissions": [
+                "bcd.c"
+            ],
+            "make": [
+                "cp $src/bst.h $src/read.c .",
+                "cc -Wall -o ./read read.c bcd.c"
+            ],
+            "tests": [
+                {
+                    "exe": "$test.sh",
+                    "args": [
+                        "./read",
+                        "$tests.read"
+                    ]
+                }
+            ]
+        },
+        {
+            "submissions": [
+                "bcd.c"
+            ],
+            "make": [
+                "cp $src/bst.h $src/sum.c .",
+                "cc -Wall -o ./sum sum.c bcd.c"
+            ],
+            "tests": [
+                {
+                    "exe": "$test.sh",
+                    "args": [
+                        "./sum",
+                        "$tests.sum"
+                    ]
+                }
+            ]
+        },
+        {
+            "submissions": [
+                "bcd.c"
+            ],
+            "make": [
+                "cp $src/bst.h $src/scale.c .",
+                "cc -Wall -o ./scale scale.c bcd.c"
+            ],
+            "tests": [
+                {
+                    "exe": "$test.sh",
+                    "args": [
+                        "./scale",
+                        "$tests.scale"
+                    ]
+                }
+            ]
+        }
+    ]
+}

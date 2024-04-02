@@ -1,0 +1,58 @@
+{
+    "tests": [
+        {
+            "submissions": [
+                "expr.c"
+            ],
+            "make": [
+                "cp $src/bst.h $src/read.c .",
+                "cc -Wall -o ./read read.c expr.c"
+            ],
+            "tests": [
+                {
+                    "exe": "$test.sh",
+                    "args": [
+                        "./read",
+                        "$tests.read"
+                    ]
+                }
+            ]
+        },
+        {
+            "submissions": [
+                "expr.c"
+            ],
+            "make": [
+                "cp $src/bst.h $src/fully.c .",
+                "cc -Wall -o ./fully fully.c expr.c"
+            ],
+            "tests": [
+                {
+                    "exe": "$test.sh",
+                    "args": [
+                        "./fully",
+                        "$tests.fully"
+                    ]
+                }
+            ]
+        },
+        {
+            "submissions": [
+                "expr.c"
+            ],
+            "make": [
+                "cp $src/bst.h $src/minimal.c .",
+                "cc -Wall -o ./minimal minimal.c expr.c"
+            ],
+            "tests": [
+                {
+                    "exe": "$test.sh",
+                    "args": [
+                        "./minimal",
+                        "$tests.minimal"
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+[
+    {
+        "submissions": [
+            "count.c"
+        ],
+        "make": [
+            "cc -Wall -o ./count count.c"
+        ],
+        "tests": [
+            {
+                "exe": "$test.sh",
+                "args": [
+                    "./count",
+                    "$tests.count"
+                ]
+            }
+        ]
+    },
+    {
+        "submissions": [
+            "horizontal.c"
+        ],
+        "make": [
+            "cc -Wall -o ./horizontal horizontal.c"
+        ],
+        "tests": [
+            {
+                "exe": "$test.sh",
+                "args": [
+                    "./horizontal",
+                    "$tests.horizontal"
+                ]
+            }
+        ]
+    },
+    {
+        "submissions": [
+            "vertical.c"
+        ],
+        "make": [
+            "cc -Wall -o ./vertical vertical.c"
+        ],
+        "tests": [
+            {
+                "exe": "$test.sh",
+                "args": [
+                    "./vertical",
+                    "$tests.vertical"
+                ]
+            }
+        ]
+    }
+]

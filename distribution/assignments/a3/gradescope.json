@@ -1,0 +1,38 @@
+{
+    "tests": [
+        {
+            "submissions": [
+                "wc.c"
+            ],
+            "make": [
+                "cc -Wall -o ./wc wc.c"
+            ],
+            "tests": [
+                {
+                    "exe": "$test.sh",
+                    "args": [
+                        "./wc",
+                        "$tests.wc"
+                    ]
+                }
+            ]
+        },
+        {
+            "submissions": [
+                "detab.c"
+            ],
+            "make": [
+                "cc -Wall -o ./detab detab.c"
+            ],
+            "tests": [
+                {
+                    "exe": "$test.sh",
+                    "args": [
+                        "./detab",
+                        "$tests.detab"
+                    ]
+                }
+            ]
+        }
+    ]
+}
