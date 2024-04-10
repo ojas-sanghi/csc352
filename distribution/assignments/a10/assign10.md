@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://unpkg.com/bamboo.css">
 
-# Programming Assignment 9: Binary-Coded Decimals [DRAFT]
+# Programming Assignment 10: Binary-Coded Decimals [DRAFT]
 
 Version 1.0 (2024-03-31) - Initial version
 
@@ -79,6 +79,7 @@ Finally, your program will need to implement 6 (of these 7) functions, which are
 ```
 extern int audit_digits(Digit *d);
 extern char *bcd_to_string(BCD *bcd);
+extern BCD* string_to_bcd(char *s);
 extern BCD* read_bcd();
 
 extern BCD* zero();
@@ -105,6 +106,10 @@ This function will take a pointer to a `Digit` node and return 1 if the `digit` 
 
 ### `char *bcd_to_string(BCD *bcd)`
 This function will take a pointer to a `BCD` node and return a string that represents the number stored in the `BCD` node.  The string should be dynamically allocated.  The string should contain the digits of the number in order from most significant to least significant.  For example, the number 1234 would be represented by the string "1234".
+
+### `BCD* string_to_bcd(char *s)`
+This function will take a string of digits and return a pointer to a `BCD` node that represents the number stored in the string.  The string will contain the digits of the number in order from most significant to least significant.  For example, the string "1234" would represent the number 1234.
+
 
 ### `BCD* read_bcd()`
 This function will read a BCD number from standard input and return a pointer to a `BCD` node that represents that number.  The number will be read as a string of digits.  The most significant digit will be read first, and the least significant digit will be read last.  
@@ -148,12 +153,12 @@ Then, try it with file redirection, like:
 Run the test cases using these commands as appropriate.  E.g.,
 
 ```bash
-../distribution/assignments/a9/test.sh ./read ../distribution/assignments/a10/tests.read
+../distribution/assignments/10/test.sh ./read ../distribution/assignments/a10/tests.read
 ```
 
 If they don't all pass, then you have a problem.
 
 ## Turn it in
 
-Turn in all `bcd.c` to Gradescope for Assignment A9.
+Turn in all `bcd.c` to Gradescope for Assignment A10.
 

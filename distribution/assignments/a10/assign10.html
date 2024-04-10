@@ -1,7 +1,7 @@
 <p><link rel="stylesheet" href="https://unpkg.com/bamboo.css"></p>
 <h1
-id="programming-assignment-9-binary-coded-decimals-draft">Programming
-Assignment 9: Binary-Coded Decimals [DRAFT]</h1>
+id="programming-assignment-10-binary-coded-decimals-draft">Programming
+Assignment 10: Binary-Coded Decimals [DRAFT]</h1>
 <p>Version 1.0 (2024-03-31) - Initial version</p>
 <h2 id="due-date">Due Date:</h2>
 <ul>
@@ -75,6 +75,7 @@ typedef struct bcd {
 functions, which are prototyped in <code>bcd.h</code>:</p>
 <pre><code>extern int audit_digits(Digit *d);
 extern char *bcd_to_string(BCD *bcd);
+extern BCD* string_to_bcd(char *s);
 extern BCD* read_bcd();
 
 extern BCD* zero();
@@ -108,6 +109,13 @@ return a string that represents the number stored in the
 string should contain the digits of the number in order from most
 significant to least significant. For example, the number 1234 would be
 represented by the string “1234”.</p>
+<h3
+id="bcd-string_to_bcdchar-s"><code>BCD* string_to_bcd(char *s)</code></h3>
+<p>This function will take a string of digits and return a pointer to a
+<code>BCD</code> node that represents the number stored in the string.
+The string will contain the digits of the number in order from most
+significant to least significant. For example, the string “1234” would
+represent the number 1234.</p>
 <h3 id="bcd-read_bcd"><code>BCD* read_bcd()</code></h3>
 <p>This function will read a BCD number from standard input and return a
 pointer to a <code>BCD</code> node that represents that number. The
@@ -155,7 +163,7 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="
 <h2 id="run-the-test-cases">Run the test cases</h2>
 <p>Run the test cases using these commands as appropriate. E.g.,</p>
 <div class="sourceCode" id="cb5"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">../distribution/assignments/a9/test.sh</span> ./read ../distribution/assignments/a10/tests.read</span></code></pre></div>
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">../distribution/assignments/10/test.sh</span> ./read ../distribution/assignments/a10/tests.read</span></code></pre></div>
 <p>If they don’t all pass, then you have a problem.</p>
 <h2 id="turn-it-in">Turn it in</h2>
-<p>Turn in all <code>bcd.c</code> to Gradescope for Assignment A9.</p>
+<p>Turn in all <code>bcd.c</code> to Gradescope for Assignment A10.</p>

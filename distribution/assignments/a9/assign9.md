@@ -147,6 +147,8 @@ I suggest you implement these functions in the order they are listed.
 #### `List* get_all_expr_nodes()`
 `get_all_expr_nodes` will read all of the expressions from standard input and return a linked list of `Expr` nodes.  This function should call `get_next_expr_node` repeatedly until it returns an `Expr` node with a `type` of `END`.  The `next` field of the last `Expr` node in the list should be set to `NULL`.
 
+The list should NOT include the `END` node.
+
 #### `void print_expr_node(Expr* expr)`
 `print_expr_node` will print the expression represented by the `Expr` node to standard output.
 

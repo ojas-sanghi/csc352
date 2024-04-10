@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "linked.h": "c"
+        "linked.h": "c",
+        "bcd.h": "c"
     },
     "files.autoSave": "afterDelay"
 }

@@ -1,0 +1,11 @@
+cc -Wall -o read ../distribution/assignments/a10/src/read.c bcd.c
+./read < ../distribution/assignments/a10/tests.read/t05_05.stdin
+../distribution/assignments/a10/test.sh ./read ../distribution/assignments/a10/tests.read
+
+cc -Wall -o sum ../distribution/assignments/a10/src/sum.c bcd.c
+./sum < ../distribution/assignments/a10/tests.sum/t05_05.stdin
+../distribution/assignments/a10/test.sh ./sum ../distribution/assignments/a10/tests.sum
+
+cc -Wall -o scale ../distribution/assignments/a10/src/scale.c bcd.c
+./scale < ../distribution/assignments/a10/tests.scale/t05_05.stdin
+../distribution/assignments/a10/test.sh ./scale ../distribution/assignments/a10/tests.scale

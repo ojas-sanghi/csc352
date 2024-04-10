@@ -19,8 +19,6 @@ destdir="./results/$testdir"
 expectedout="$basedir/$base.stdout.expected"
 expectederr="$basedir/$base.stderr.expected"
 
-cp "$expectedout" "$expectederr" "$destdir"
-
 # echo "executable: $executable"
 # echo "testcase: $testcase"
 # echo "expectedout: $expectedout"
@@ -42,6 +40,8 @@ basename=$(basename "$base")
 if [ ! -d "$destdir" ]; then
     mkdir -p "$destdir"
 fi
+
+cp "$expectedout" "$expectederr" "$destdir"
 
 stdout=$destdir/$basename.stdout
 stderr=$destdir/$basename.stderr
